@@ -5,11 +5,11 @@ namespace Modules\Partner\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 
-class Partner extends Model
+class Transaction extends Model
 {
 
     protected $fillable = [];
-    protected $table = "partner";
+    protected $table = "partner_transaction";
 
     /**
      * List of fields for managing postings.
