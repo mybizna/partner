@@ -50,13 +50,13 @@ class Partner extends BaseModel
 
     public function post_migration(Blueprint $table)
     {
-        /*if (Migration::checkKeyExist('partner_user', 'user_id')) {
-            $table->foreign('user_id')->references('id')->on('partner_user')->nullOnDelete();
-        }*/
-        if (Migration::checkKeyExist('core_country', 'country_id')) {
+        if (Migration::checkKeyExist('partner', 'user_id')) {
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
+        }
+        if (Migration::checkKeyExist('partner', 'country_id')) {
             $table->foreign('country_id')->references('id')->on('core_country')->nullOnDelete();
         }
-        if (Migration::checkKeyExist('core_currency', 'currency_id')) {
+        if (Migration::checkKeyExist('partner', 'currency_id')) {
             $table->foreign('currency_id')->references('id')->on('core_currency')->nullOnDelete();
         }
     }
