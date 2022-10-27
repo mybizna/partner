@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 class TypeRelation extends BaseModel
 {
 
-    protected $fillable = ['people_id', 'people_types_id'];
+    protected $fillable = ['partner_id', 'partner_types_id'];
     public $migrationDependancy = [];
     protected $table = "partner_type_relation";
 
@@ -21,7 +21,7 @@ class TypeRelation extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->bigIncrements('id');
-        $table->unsignedBigInteger('people_id')->nullable()->index('people_id');
-        $table->unsignedInteger('people_types_id')->nullable()->index('people_types_id');
+        $table->unsignedBigInteger('partner_id')->nullable()->index('partner_id');
+        $table->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id');
     }
 }

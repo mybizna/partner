@@ -5,12 +5,12 @@ namespace Modules\Partner\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
-class Meta extends BaseModel
+class Slug extends BaseModel
 {
 
-    protected $fillable = ['partner_id', 'meta_key', 'meta_value'];
+    protected $fillable = ['partner_id', 'slug'];
     public $migrationDependancy = [];
-    protected $table = "partner_meta";
+    protected $table = "partner_slug";
 
     /**
      * List of fields for managing postings.
@@ -22,7 +22,13 @@ class Meta extends BaseModel
     {
         $table->increments('id');
         $table->bigInteger('partner_id')->nullable()->index('partner_id');
-        $table->string('meta_key')->nullable();
-        $table->longText('meta_value')->nullable();
+        $table->string('slug')->nullable();
+    }
+
+    public function post_migration(Blueprint $table)
+    {
+        if (Migration::checkKeyExist('partner_slug', 'partner_id')) {
+            $table->foreign('partner_id')->references('id')->on('partner')->nullOnDelete();
+        }
     }
 }
