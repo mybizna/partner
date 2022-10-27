@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Isp\Classes;
+namespace Modules\Partner\Classes;
 
 use Modules\Partner\Entities\Partner as DBPartner;
 use Modules\Partner\Entities\Slug;

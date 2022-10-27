@@ -5,6 +5,8 @@ namespace Modules\Partner\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
+use Modules\Base\Classes\Migration;
+
 class Slug extends BaseModel
 {
 
