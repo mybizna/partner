@@ -6,7 +6,7 @@ $this->add_module_info("partner", [
     'icon' => 'fas fa-store',
     'path' => '/partner/admin/partner',
     'class_str'=> 'text-info border-info'
-]);
+]); 
 
 
 $this->add_menu("partner", "partner", "Partners", "/partner/admin/partner", "fas fa-cogs", 5);
