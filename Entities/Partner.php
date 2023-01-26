@@ -32,8 +32,8 @@ class Partner extends BaseModel
          $table->enum('type', ['customer', 'suppier'])->default('customer')->nullable();
         $table->string('company', 60)->nullable();
         $table->string('email', 100)->nullable()->index('email');
-        $table->string('phone', 20)->nullable();
-        $table->string('mobile', 20)->nullable();
+        $table->string('phone', 100)->nullable();
+        $table->string('mobile', 100)->nullable();
         $table->string('other', 50)->nullable();
         $table->string('website', 100)->nullable();
         $table->string('fax', 20)->nullable();

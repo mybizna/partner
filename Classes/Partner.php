@@ -72,8 +72,6 @@ class Partner
         if ($partner) {
 
             $this->updatePartnerSlug($partner->id, $partner->email);
-            $this->updatePartnerSlug($partner->id, $partner->phone);
-            $this->updatePartnerSlug($partner->id, $partner->mobile);
 
             return $partner;
         } else {
@@ -91,9 +89,8 @@ class Partner
 
                 if ($partner) {
 
-                    $this->updatePartnerSlug($partner->id, $partner->email);
-                    $this->updatePartnerSlug($partner->id, $partner->phone);
-                    $this->updatePartnerSlug($partner->id, $partner->mobile);
+                    $this->updatePartnerSlug($partner->id, $user->username);
+                    $this->updatePartnerSlug($partner->id, $partner->email ?? $user->email);
 
                     return $partner;
 
@@ -105,7 +102,7 @@ class Partner
                         'last_name' => $name[1],
                         'email' => $user->email,
                         'phone' => $user->phone,
-                        'slug' => [$user->username, $user->email, $user->phone],
+                        'slug' => [$user->username, $user->email],
                     ];
 
                     $partner = $this->createPartner($data);
@@ -133,7 +130,7 @@ class Partner
         $partner_slugs = Slug::where($slug_where)->first();
 
         if (!$partner_slugs) {
-            Slug::create(['partner_id' => $partner->id, 'slug' => $slug]);
+            Slug::create(['partner_id' => $partner_id, 'slug' => $slug]);
         }
 
     }
