@@ -26,7 +26,7 @@ class Partner extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->unsignedBigInteger('user_id')->default(0)->index('user_id');
+        $table->unsignedBigInteger('user_id')->nullable()->index('user_id');
         $table->string('first_name', 60)->nullable();
         $table->string('last_name', 60)->nullable();
          $table->enum('type', ['customer', 'suppier'])->default('customer')->nullable();
