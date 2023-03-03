@@ -2,17 +2,17 @@
 
 namespace Modules\Partner\Entities;
 
-use Modules\Base\Entities\BaseModel;
-use Modules\Base\Classes\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Classes\Migration;
+use Modules\Base\Entities\BaseModel;
 
 class Partner extends BaseModel
 {
 
     protected $fillable = [
-        'user_id','first_name','last_name', 'company', 'email', 'phone', 'mobile', 'other', 'website',
-        'fax', 'notes', 'address',  'city', 'state', 'postal_code',
-        'country_id', 'currency_id', 'life_stage', 'hash'
+        'user_id', 'first_name', 'last_name', "type_str", 'company', 'email', 'phone', 'mobile', 'other', 'website',
+        'fax', 'notes', 'address', 'city', 'state', 'postal_code',
+        'country_id', 'currency_id', 'life_stage', 'hash',
     ];
     public $migrationDependancy = [];
     protected $table = "partner";
@@ -29,7 +29,7 @@ class Partner extends BaseModel
         $table->unsignedBigInteger('user_id')->nullable()->index('user_id');
         $table->string('first_name', 60)->nullable();
         $table->string('last_name', 60)->nullable();
-         $table->enum('type', ['customer', 'suppier'])->default('customer')->nullable();
+        $table->enum('type_str', ['customer', 'suppier'])->default('customer')->nullable();
         $table->string('company', 60)->nullable();
         $table->string('email', 100)->nullable()->index('email');
         $table->string('phone', 100)->nullable();
