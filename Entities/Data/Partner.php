@@ -2,7 +2,9 @@
 
 namespace Modules\Partner\Entities\Data;
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Modules\Base\Classes\Datasetter;
 
 class Partner
@@ -18,7 +20,7 @@ class Partner
             $user = DB::table('users')->first();
 
             if (!$user) {
-                $user = new App\Models\User();
+                $user = new User();
                 $user->password = Hash::make('johndoe');
                 $user->email = 'johndoe@johndoe.com';
                 $user->name = 'John Doe';
