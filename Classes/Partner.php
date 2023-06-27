@@ -25,9 +25,7 @@ class Partner
             $whereData[] = ['phone', $data['phone']];
         }
 
-        if (empty($whereData)) {
-            throw new \Exception("Error: Partner Must have phone number or email", true);
-        } else {
+        if (!empty($data)) {
             $partner = DBPartner::where($whereData)->first();
 
             if (!$partner) {
