@@ -2,8 +2,10 @@
 
 namespace Modules\Partner\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Entities\BaseModel;
+use Modules\Core\Classes\Views\FormBuilder;
+use Modules\Core\Classes\Views\ListTable;
 
 class Meta extends BaseModel
 {
@@ -12,6 +14,44 @@ class Meta extends BaseModel
     public $migrationDependancy = [];
     protected $table = "partner_meta";
 
+    public function listTable()
+    {
+        // listing view fields
+        $fields = new ListTable();
+
+        $fields->name('partner_id')->type('text')->ordering(true);
+        $fields->name('meta_key')->type('text')->ordering(true);
+        $fields->name('meta_value')->type('text')->ordering(true);
+
+        return $fields;
+
+    }
+
+    public function formBuilder()
+    {
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('partner_id')->type('text')->group('w-1/2');
+        $fields->name('meta_key')->type('text')->group('w-1/2');
+        $fields->name('meta_value')->type('text')->group('w-1/2');
+
+        return $fields;
+
+    }
+
+    public function filter()
+    {
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('partner_id')->type('text')->group('w-1/6');
+        $fields->name('meta_key')->type('text')->group('w-1/6');
+        $fields->name('meta_value')->type('text')->group('w-1/6');
+
+        return $fields;
+
+    }
     /**
      * List of fields for managing postings.
      *
