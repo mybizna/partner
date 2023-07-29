@@ -1,5 +1,7 @@
 <?php
 
+/** @var \Modules\Base\Classes\Fetch\Rights $this */
+
 $this->add_right("partner", "life_stage", "administrator", view:true, add:true, edit:true, delete:true);
 $this->add_right("partner", "life_stage", "manager", view:true, add:true, edit:true, delete:true);
 $this->add_right("partner", "life_stage", "supervisor", view:true, add:true, edit:true, delete:true);

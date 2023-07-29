@@ -4,17 +4,30 @@ namespace Modules\Partner\Entities;
 
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
-use Modules\Core\Classes\Views\FormBuilder;
-use Modules\Core\Classes\Views\ListTable;
+use Modules\Base\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
 
 class Meta extends BaseModel
 {
-
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = ['partner_id', 'meta_key', 'meta_value'];
-    public $migrationDependancy = [];
+
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
+
+    /**
+     * The table associated with the model.
+     * @var string
+     */
     protected $table = "partner_meta";
 
-    public function listTable()
+    public function  listTable(): ListTable
     {
         // listing view fields
         $fields = new ListTable();
@@ -40,7 +53,7 @@ class Meta extends BaseModel
 
     }
 
-    public function filter()
+    public function filter(): FormBuilder
     {
         // listing view fields
         $fields = new FormBuilder();
@@ -53,7 +66,7 @@ class Meta extends BaseModel
 
     }
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void
