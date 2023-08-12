@@ -21,6 +21,15 @@ class Partner extends BaseModel
         'country_id', 'currency_id', 'life_stage', 'hash',
     ];
 
+
+
+    /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['first_name', 'last_name', 'phone'];
+
     /**
      * List of tables names that are need in this model during migration.
      *

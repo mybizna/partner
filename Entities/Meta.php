@@ -17,6 +17,13 @@ class Meta extends BaseModel
     protected $fillable = ['partner_id', 'meta_key', 'meta_value'];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['meta_key'];
+
+    /**
      * List of tables names that are need in this model during migration.
      *
      * @var array<string>
@@ -50,7 +57,7 @@ class Meta extends BaseModel
 
     /**
      * Function for defining list of fields in form view.
-     * 
+     *
      * @return FormBuilder
      */
     public function formBuilder(): FormBuilder
@@ -68,7 +75,7 @@ class Meta extends BaseModel
 
     /**
      * Function for defining list of fields in filter view.
-     * 
+     *
      * @return FormBuilder
      */
     public function filter(): FormBuilder
