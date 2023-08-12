@@ -47,8 +47,8 @@ class TypeRelation extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->ordering(true);
-        $fields->name('partner_types_id')->type('recordpicker')->table('partner_types')->ordering(true);
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->ordering(true);
+        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->ordering(true);
 
         return $fields;
 
@@ -64,8 +64,8 @@ class TypeRelation extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->group('w-1/2');
-        $fields->name('partner_types_id')->type('recordpicker')->table('partner_types')->group('w-1/2');
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/2');
+        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->group('w-1/2');
 
         return $fields;
 
@@ -81,8 +81,8 @@ class TypeRelation extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->group('w-1/6');
-        $fields->name('partner_types_id')->type('recordpicker')->table('partner_types')->group('w-1/6');
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/6');
+        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->group('w-1/6');
 
         return $fields;
 

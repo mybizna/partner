@@ -48,7 +48,7 @@ class Slug extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->ordering(true);
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->ordering(true);
         $fields->name('slug')->type('text')->ordering(true);
 
         return $fields;
@@ -65,7 +65,7 @@ class Slug extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->group('w-1/2');
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/2');
         $fields->name('slug')->type('text')->group('w-1/2');
 
         return $fields;
@@ -82,7 +82,7 @@ class Slug extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('partner_id')->type('recordpicker')->table('partner')->group('w-1/6');
+        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/6');
         $fields->name('slug')->type('text')->group('w-1/6');
 
         return $fields;

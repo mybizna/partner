@@ -55,7 +55,7 @@ class Partner extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('user_id')->type('recordpicker')->table('users')->ordering(true);
+        $fields->name('user_id')->type('recordpicker')->table([ 'users'])->ordering(true);
 
         return $fields;
 
@@ -71,7 +71,7 @@ class Partner extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('user_id')->type('recordpicker')->table('users')->group('w-1/2');
+        $fields->name('user_id')->type('recordpicker')->table([ 'users'])->group('w-1/2');
 
         return $fields;
 
@@ -88,7 +88,7 @@ class Partner extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('user_id')->type('recordpicker')->table('users')->group('w-1/6');
+        $fields->name('user_id')->type('recordpicker')->table([ 'users'])->group('w-1/6');
 
         return $fields;
 
