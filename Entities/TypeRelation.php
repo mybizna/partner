@@ -3,8 +3,6 @@
 namespace Modules\Partner\Entities;
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\Base\Classes\Views\FormBuilder;
-use Modules\Base\Classes\Views\ListTable;
 use Modules\Base\Entities\BaseModel;
 
 class TypeRelation extends BaseModel
@@ -38,65 +36,15 @@ class TypeRelation extends BaseModel
     protected $table = "partner_type_relation";
 
     /**
-     * Function for defining list of fields in table view.
-     *
-     * @return ListTable
-     */
-    public function listTable(): ListTable
-    {
-        // listing view fields
-        $fields = new ListTable();
-
-        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->ordering(true);
-        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->ordering(true);
-
-        return $fields;
-
-    }
-
-    /**
-     * Function for defining list of fields in form view.
-     *
-     * @return FormBuilder
-     */
-    public function formBuilder(): FormBuilder
-    {
-        // listing view fields
-        $fields = new FormBuilder();
-
-        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/2');
-        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->group('w-1/2');
-
-        return $fields;
-
-    }
-
-    /**
-     * Function for defining list of fields in filter view.
-     *
-     * @return FormBuilder
-     */
-    public function filter(): FormBuilder
-    {
-        // listing view fields
-        $fields = new FormBuilder();
-
-        $fields->name('partner_id')->type('recordpicker')->table(['partner'])->group('w-1/6');
-        $fields->name('partner_types_id')->type('recordpicker')->table(['partner', 'types'])->group('w-1/6');
-
-        return $fields;
-
-    }
-    /**
      * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table): void
+    public function fields(Blueprint $table): void
     {
-        $table->bigIncrements('id');
-        $table->unsignedBigInteger('partner_id')->nullable()->index('partner_id');
-        $table->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id');
+        $this->fields->bigIncrements('id')->html('text');
+        $this->fields->unsignedBigInteger('partner_id')->nullable()->index('partner_id')->html('recordpicker')->table(['partner']);
+        $this->fields->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id')->html('recordpicker')->table(['partner', 'types']);
     }
 }
