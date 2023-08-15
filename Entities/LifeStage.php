@@ -41,7 +41,7 @@ class LifeStage extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
@@ -50,5 +50,18 @@ class LifeStage extends BaseModel
         $this->fields->string('title', 100)->nullable()->html('text');
         $this->fields->string('title_plural', 100)->nullable()->html('text');
         $this->fields->unsignedSmallInteger('position')->default(0)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['slug', 'title', 'title_plural', 'position'],
+            'filter' => ['slug', 'title', 'title_plural', 'position'],
+        ];
+
+        return $structure;
     }
 }

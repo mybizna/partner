@@ -46,10 +46,10 @@ class Partner extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->foreignId('user_id')->nullable()->index('user_id')->html('recordpicker')->table(['users']);
         $this->fields->string('first_name', 60)->nullable()->html('text');
@@ -71,6 +71,19 @@ class Partner extends BaseModel
         $this->fields->foreignId('currency_id')->nullable()->html('text');
         $this->fields->string('life_stage')->nullable()->html('text');
         $this->fields->string('hash', 40)->nullable()->html('text');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['user_id', 'first_name', 'last_name', 'company', 'email', 'phone', 'mobile', 'address', 'city', 'state'],
+            'filter' => ['first_name', 'last_name', 'company', 'email', 'phone'],
+        ];
+
+        return $structure;
     }
 
 }
