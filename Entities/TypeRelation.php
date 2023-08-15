@@ -43,6 +43,8 @@ class TypeRelation extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->bigIncrements('id')->html('text');
         $this->fields->unsignedBigInteger('partner_id')->nullable()->index('partner_id')->html('recordpicker')->table(['partner']);
         $this->fields->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id')->html('recordpicker')->table(['partner', 'types']);

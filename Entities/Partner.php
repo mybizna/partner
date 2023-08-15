@@ -48,6 +48,8 @@ class Partner extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->increments('id')->html('text');
         $this->fields->foreignId('user_id')->nullable()->index('user_id')->html('recordpicker')->table(['users']);
         $this->fields->string('first_name', 60)->nullable()->html('text');

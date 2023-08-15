@@ -43,6 +43,8 @@ class Type extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->increments('id')->html('text');
         $this->fields->string('name', 20)->nullable()->unique('name')->html('text');
     }
