@@ -80,8 +80,15 @@ class Partner extends BaseModel
      */
     public function structure($structure): array
     {
+
         $structure = [
             'table' => ['user_id', 'first_name', 'last_name', 'company', 'email', 'phone', 'mobile', 'address', 'city', 'state'],
+            'form' => [
+                ['label' => 'User', 'class' => 'w-full', 'fields' => ['user_id']],
+                ['label' => 'Partner', 'class' => 'w-1/2', 'fields' => ['first_name', 'last_name', "type_str", 'company', 'email', 'phone', 'mobile']],
+                ['label' => 'Partner', 'class' => 'w-1/2', 'fields' => ['website', 'fax', 'notes', 'address', 'city', 'state', 'postal_code']],
+                ['label' => 'Partner', 'class' => 'w-1/2', 'fields' => ['country_id', 'currency_id', 'life_stage', 'hash']],
+            ],
             'filter' => ['first_name', 'last_name', 'company', 'email', 'phone'],
         ];
 

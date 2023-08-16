@@ -44,7 +44,7 @@ class LifeStage extends BaseModel
     public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->string('slug', 100)->nullable()->unique('slug')->html('text');
         $this->fields->string('title', 100)->nullable()->html('text');
@@ -59,6 +59,10 @@ class LifeStage extends BaseModel
     {
         $structure = [
             'table' => ['slug', 'title', 'title_plural', 'position'],
+            'form' => [
+                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title', 'slug']],
+                ['label' => 'Main', 'class' => 'w-1/2', 'fields' => ['title_plural', 'position']],
+            ],
             'filter' => ['slug', 'title', 'title_plural', 'position'],
         ];
 
