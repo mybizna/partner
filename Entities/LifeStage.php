@@ -57,14 +57,12 @@ class LifeStage extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['slug', 'title', 'title_plural', 'position'],
-            'form' => [
-                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title', 'slug']],
-                ['label' => 'Main', 'class' => 'w-1/2', 'fields' => ['title_plural', 'position']],
-            ],
-            'filter' => ['slug', 'title', 'title_plural', 'position'],
+        $structure['table'] = ['slug', 'title', 'title_plural', 'position'];
+        $structure['form'] = [
+            ['label' => 'Title', 'class' => 'col-span-full', 'fields' => ['title', 'slug']],
+            ['label' => 'Main', 'class' => 'col-span-6', 'fields' => ['title_plural', 'position']],
         ];
+        $structure['filter'] = ['slug', 'title', 'title_plural', 'position'];
 
         return $structure;
     }
