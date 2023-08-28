@@ -45,7 +45,7 @@ class Type extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('name', 20)->nullable()->unique('name')->html('text');
     }
 }

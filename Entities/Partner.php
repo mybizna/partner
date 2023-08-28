@@ -52,7 +52,7 @@ class Partner extends BaseModel
 
         $type = ['customer', 'suppier'];
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->foreignId('user_id')->nullable()->index('user_id')->html('recordpicker')->relation(['users']);
         $this->fields->string('first_name', 60)->nullable()->html('text');
         $this->fields->string('last_name', 60)->nullable()->html('text');

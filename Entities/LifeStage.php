@@ -45,7 +45,7 @@ class LifeStage extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('slug', 100)->nullable()->unique('slug')->html('text');
         $this->fields->string('title', 100)->nullable()->html('text');
         $this->fields->string('title_plural', 100)->nullable()->html('text');

@@ -45,7 +45,7 @@ class Meta extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->bigInteger('partner_id')->nullable()->index('partner_id')->html('recordpicker')->relation(['partner']);
         $this->fields->string('meta_key')->nullable()->html('text');
         $this->fields->longText('meta_value')->nullable()->html('text');
