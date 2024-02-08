@@ -3,14 +3,19 @@
 namespace Modules\Partner\Classes;
 
 use Modules\Partner\Entities\Partner as DBPartner;
-use Modules\Partner\Entities\Slug;
 use Modules\Partner\Events\GetPartner;
 
 class Partner
 {
+
     /**
+     * Create Partner
      *
+     * @param int $partner_id
+     *
+     * @return object|bool
      */
+
     public function createPartner($data)
     {
         $whereData = [];
@@ -39,6 +44,13 @@ class Partner
 
     }
 
+    /**
+     * Get Partner
+     *
+     * @param $partner_str
+     *
+     * @return bool|object
+     */
     public function getPartner($partner_str)
     {
 
@@ -67,6 +79,19 @@ class Partner
 
         return false;
 
+    }
+
+    /**
+     * Fetch Partner
+     *
+     * @param array $data
+     *
+     * @return object|bool
+     */
+
+    public function fetchPartner($data)
+    {
+        return $this->createPartner($data);
     }
 
 }
