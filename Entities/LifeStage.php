@@ -60,7 +60,7 @@ class LifeStage extends BaseModel
         $structure['table'] = ['slug', 'title', 'title_plural', 'position'];
         $structure['form'] = [
             ['label' => 'Title', 'class' => 'col-span-full', 'fields' => ['title', 'slug']],
-            ['label' => 'Main', 'class' => 'col-span-6', 'fields' => ['title_plural', 'position']],
+            ['label' => 'Main', 'class' => 'col-span-full md:col-span-6', 'fields' => ['title_plural', 'position']],
         ];
         $structure['filter'] = ['slug', 'title', 'title_plural', 'position'];
 
