@@ -83,10 +83,10 @@ class Partner extends BaseModel
 
         $structure['table'] = ['user_id', 'first_name', 'last_name', 'company', 'email', 'phone', 'mobile', 'address', 'city', 'state'];
         $structure['form'] = [
-            ['label' => 'User', 'class' => 'col-span-full', 'fields' => ['user_id']],
-            ['label' => 'Partner', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['first_name', 'last_name', "type_str", 'company', 'email', 'phone', 'mobile']],
-            ['label' => 'Partner', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['website', 'fax', 'notes', 'address', 'city', 'state', 'postal_code']],
-            ['label' => 'Partner', 'class' => 'col-span-full md:col-span-6ull  md:col-span-6 md:pr-2', 'fields' => ['country_id', 'currency_id', 'life_stage', 'hash']],
+            ['label' => 'Partner User', 'class' => 'col-span-full', 'fields' => ['user_id']],
+            ['label' => 'Partner Bio Info', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['first_name', 'last_name', "type_str", 'company', 'email', 'phone', 'mobile']],
+            ['label' => 'Partner Contact Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['website', 'fax', 'notes', 'address', 'city', 'state', 'postal_code']],
+            ['label' => 'Partner Other Setting', 'class' => 'col-span-full md:col-span-6ull  md:col-span-6 md:pr-2', 'fields' => ['country_id', 'currency_id', 'life_stage', 'hash']],
         ];
         $structure['filter'] = ['first_name', 'last_name', 'company', 'email', 'phone'];
 
