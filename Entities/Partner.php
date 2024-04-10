@@ -51,15 +51,19 @@ class Partner extends BaseModel
         $this->fields = $table ?? new Blueprint($this->table);
 
         $type = ['customer', 'suppier'];
+        $gender = ['male', 'female'];
 
         $this->fields->increments('id')->html('hidden');
         $this->fields->foreignId('user_id')->nullable()->index('user_id')->html('recordpicker')->relation(['users']);
+        $this->fields->foreignId('inviter_id')->nullable()->index('inviter_id')->html('recordpicker')->relation(['users']);
         $this->fields->string('first_name', 60)->nullable()->html('text');
         $this->fields->string('last_name', 60)->nullable()->html('text');
         $this->fields->enum('type_str', $type)->options($type)->default('customer')->nullable()->html('select');
+        $this->fields->enum('gender', $gender)->options($gender)->default('male')->nullable()->html('select');
         $this->fields->string('company', 60)->nullable()->html('text');
         $this->fields->string('email', 100)->nullable()->index('email')->html('email');
         $this->fields->string('phone', 100)->nullable()->html('text');
+        $this->fields->string('birth_date')->html('datetime');
         $this->fields->string('mobile', 100)->nullable()->html('text');
         $this->fields->string('other', 50)->nullable()->html('text');
         $this->fields->string('website', 100)->nullable()->html('text');
