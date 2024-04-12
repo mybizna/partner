@@ -50,4 +50,14 @@ class Meta extends BaseModel
         $this->fields->string('meta_key')->nullable()->html('text');
         $this->fields->longText('meta_value')->nullable()->html('text');
     }
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }

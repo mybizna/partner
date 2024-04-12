@@ -49,4 +49,14 @@ class TypeRelation extends BaseModel
         $this->fields->unsignedBigInteger('partner_id')->nullable()->index('partner_id')->html('recordpicker')->relation(['partner']);
         $this->fields->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id')->html('recordpicker')->relation(['partner', 'types']);
     }
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }
