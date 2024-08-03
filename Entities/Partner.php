@@ -20,20 +20,6 @@ class Partner extends BaseModel
     ];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['first_name', 'last_name', 'phone'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -79,38 +65,8 @@ class Partner extends BaseModel
         $this->fields->string('hash', 40)->nullable()->html('text');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
+  
+    
 
-        $structure['table'] = ['user_id', 'first_name', 'last_name', 'company', 'email', 'phone', 'mobile', 'address', 'city', 'state'];
-        $structure['form'] = [
-            ['label' => 'Partner User', 'class' => 'col-span-full', 'fields' => ['user_id']],
-            ['label' => 'Partner Bio Info', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['first_name', 'last_name', "type_str", 'company', 'email', 'phone', 'mobile']],
-            ['label' => 'Partner Contact Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['website', 'fax', 'notes', 'address', 'city', 'state', 'postal_code']],
-            ['label' => 'Partner Other Setting', 'class' => 'col-span-full md:col-span-6ull  md:col-span-6 md:pr-2', 'fields' => ['country_id', 'currency_id', 'life_stage', 'hash']],
-        ];
-        $structure['filter'] = ['first_name', 'last_name', 'company', 'email', 'phone'];
-
-        return $structure;
-    }
-
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = [];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 
 }

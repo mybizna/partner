@@ -15,20 +15,6 @@ class TypeRelation extends BaseModel
     protected $fillable = ['partner_id', 'partner_types_id'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['partner_id'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -50,19 +36,5 @@ class TypeRelation extends BaseModel
         $this->fields->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id')->html('recordpicker')->relation(['partner', 'types']);
     }
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }
