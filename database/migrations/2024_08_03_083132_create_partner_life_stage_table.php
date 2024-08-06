@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('partner_life_stage', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('slug', 100)->nullable()->unique('slug');
+            $table->string('title', 100)->nullable();
+            $table->string('title_plural', 100)->nullable();
+            $table->unsignedSmallInteger('position')->default(0);
+
             $table->timestamps();
         });
     }

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('partner_slug', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->foreignId('partner_id')->nullable()->index('partner_id');
+            $table->string('slug')->nullable();
+
             $table->timestamps();
         });
     }

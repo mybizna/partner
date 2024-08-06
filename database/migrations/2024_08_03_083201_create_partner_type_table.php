@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('partner_type', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name', 20)->nullable()->unique('name');
+
             $table->timestamps();
         });
     }
