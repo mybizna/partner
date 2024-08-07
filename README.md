@@ -21,7 +21,7 @@ The Partner module provides a comprehensive set of features to streamline partne
 To leverage these features, access the MyBizNa ERP application and navigate to the Partner module. Explore the available options to effectively manage your partnerships and maximize collaboration with external entities.
 
 ## Requirements
-Mybizna ERP version 1.0 or above
+Mybizna ERP version 2024.1 or above
 
 ## Support
 If you have any questions or need assistance, please contact our support team. We're always happy to help!
