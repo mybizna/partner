@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('partner_type_relation', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('partner_id')->nullable()->index('partner_id');
-            $table->unsignedInteger('partner_types_id')->nullable()->index('partner_types_id');
+            $table->foreignId('partner_id')->nullable()->index('partner_id');
+            $table->foreignId('partner_types_id')->nullable()->index('partner_types_id');
 
             $table->timestamps();
         });

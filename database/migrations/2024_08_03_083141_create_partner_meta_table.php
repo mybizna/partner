@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partner_meta', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('partner_id')->nullable()->index('partner_id');
+            $table->foreignId('partner_id')->nullable()->index('partner_id');
             $table->string('meta_key')->nullable();
             $table->longText('meta_value')->nullable();
 
