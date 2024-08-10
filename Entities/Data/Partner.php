@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Partner\Entities\Data;
+namespace Modules\Partner\Models\Data;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +11,7 @@ class Partner
 {
     /**
      * Set ordering of the Class to be migrated.
-     * 
+     *
      * @var int
      */
     public $ordering = 1;

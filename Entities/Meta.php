@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Partner\Entities;
+namespace Modules\Partner\Models;
 
-use Modules\Base\Entities\BaseModel;
+use Modules\Base\Models\BaseModel;
 
 class Meta extends BaseModel
 {

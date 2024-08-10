@@ -2,8 +2,8 @@
 
 namespace Modules\Partner\Classes;
 
-use Modules\Partner\Entities\Partner as DBPartner;
 use Modules\Partner\Events\GetPartner;
+use Modules\Partner\Models\Partner as DBPartner;
 
 class Partner
 {

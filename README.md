@@ -8,7 +8,7 @@ composer require mybizna/partner
 ```
 
 ## Usage
-The Partner module provides a comprehensive set of features to streamline partner management and enhance collaboration with external entities. Some key functionalities include:
+The Partner module provides a comprehensive set of features to streamline partner management and enhance collaboration with external Models. Some key functionalities include:
 
  - **Partner Information:** Store and manage essential information about your partners, including contact details, contracts, and agreements.
  - **Partner Segmentation:** Categorize partners based on criteria such as type, industry, or geographic location for easier organization and targeted communication.
@@ -18,7 +18,7 @@ The Partner module provides a comprehensive set of features to streamline partne
  - **Performance Analysis:** Assess partner performance through metrics and key performance indicators (KPIs) to evaluate the effectiveness of partnerships.
  - **Reporting and Analytics:** Generate reports and gain insights into partner-related data, enabling informed decision-making and strategy formulation.
 
-To leverage these features, access the MyBizNa ERP application and navigate to the Partner module. Explore the available options to effectively manage your partnerships and maximize collaboration with external entities.
+To leverage these features, access the MyBizNa ERP application and navigate to the Partner module. Explore the available options to effectively manage your partnerships and maximize collaboration with external Models.
 
 ## Requirements
 Mybizna ERP version 2024.1 or above
