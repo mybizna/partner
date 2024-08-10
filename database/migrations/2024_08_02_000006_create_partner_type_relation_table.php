@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_type_relation_partner_id');
-            $table->foreignId('partner_types_id')->constrained('partner_partner_types')->onDelete('cascade')->nullable()->index('partner_type_relation_partner_types_id');
+            $table->foreignId('partner_type_id')->constrained('partner_type')->onDelete('cascade')->nullable()->index('partner_type_relation_partner_type_id');
 
             $table->timestamps();
         });
