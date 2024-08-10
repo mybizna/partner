@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partner_slug', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_id');
+            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_slug_partner_id');
             $table->string('slug')->nullable();
 
             $table->timestamps();

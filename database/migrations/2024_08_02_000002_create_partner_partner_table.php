@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('partner_partner', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable()->index('user_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable()->index('partner_partner_user_id');
 
             $table->string('first_name', 60)->nullable();
             $table->string('last_name', 60)->nullable();
             $table->enum('type_str', ['customer', 'suppier'])->nullable()->default('customer');
-            $table->enum('gender',['male', 'female'])->nullable()->default('male');
+            $table->enum('gender', ['male', 'female'])->nullable()->default('male');
             $table->string('company', 60)->nullable();
             $table->string('email', 100)->nullable();
             $table->string('phone', 100)->nullable();
@@ -33,11 +33,11 @@ return new class extends Migration
             $table->string('city', 80)->nullable();
             $table->string('state', 50)->nullable();
             $table->string('postal_code', 10)->nullable();
-            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->index('country_id');
-            $table->foreignId('currency_id')->constrained('core_currency')->onDelete('cascade')->nullable()->index('currency_id');
+            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->index('partner_partner_country_id');
+            $table->foreignId('currency_id')->constrained('core_currency')->onDelete('cascade')->nullable()->index('partner_partner_currency_id');
             $table->string('life_stage')->nullable();
             $table->string('hash', 40)->nullable();
-            
+
             $table->timestamps();
         });
     }

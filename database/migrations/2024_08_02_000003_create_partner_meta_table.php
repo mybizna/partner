@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partner_meta', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_id');
+            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_meta_partner_id');
             $table->string('meta_key')->nullable();
             $table->longText('meta_value')->nullable();
 
