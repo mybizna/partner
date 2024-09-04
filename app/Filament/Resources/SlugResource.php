@@ -2,9 +2,6 @@
 
 namespace Modules\Partner\Filament\Resources;
 
-use Modules\Partner\Filament\Resources\SlugResource\Pages;
-use Modules\Partner\Filament\Resources\SlugResource\RelationManagers;
-use Modules\Partner\Models\Slug;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Partner\Filament\Resources\SlugResource\Pages;
+use Modules\Partner\Models\Slug;
 
 class SlugResource extends Resource
 {
     protected static ?string $model = Slug::class;
+
+    protected static ?string $slug = 'partner/slug';
+
+    protected static ?string $navigationGroup = 'Partner';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

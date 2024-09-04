@@ -2,9 +2,6 @@
 
 namespace Modules\Partner\Filament\Resources;
 
-use Modules\Partner\Filament\Resources\LifeStageResource\Pages;
-use Modules\Partner\Filament\Resources\LifeStageResource\RelationManagers;
-use Modules\Partner\Models\LifeStage;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Partner\Filament\Resources\LifeStageResource\Pages;
+use Modules\Partner\Models\LifeStage;
 
 class LifeStageResource extends Resource
 {
     protected static ?string $model = LifeStage::class;
+
+    protected static ?string $slug = 'partner/lifestage';
+
+    protected static ?string $navigationGroup = 'Mpesa';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

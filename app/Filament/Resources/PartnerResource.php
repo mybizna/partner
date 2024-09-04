@@ -2,20 +2,22 @@
 
 namespace Modules\Partner\Filament\Resources;
 
-use Modules\Partner\Filament\Resources\PartnerResource\Pages;
-use Modules\Partner\Filament\Resources\PartnerResource\RelationManagers;
-use Modules\Partner\Models\Partner;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Partner\Filament\Resources\PartnerResource\Pages;
+use Modules\Partner\Models\Partner;
 
 class PartnerResource extends Resource
 {
     protected static ?string $model = Partner::class;
+
+    protected static ?string $slug = 'partner/partner';
+
+    protected static ?string $navigationGroup = 'Partner';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
