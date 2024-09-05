@@ -3,6 +3,10 @@
 namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
+use Modules\Core\Models\Country;
+use Modules\Core\Models\Currency;
+use Modules\Partner\Models\Meta;
+use App\Models\User;s
 
 class Partner extends BaseModel
 {
@@ -23,5 +27,41 @@ class Partner extends BaseModel
      * @var string
      */
     protected $table = "partner";
+
+    /**
+     * Add relationship to Meta
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function meta()
+    {
+        return $this->hasMany(Meta::class);
+    }
+
+    /**
+     * Add relationship to Country
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
+     * Add relationship to Currency
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    /**
+     * Add relationship to User
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

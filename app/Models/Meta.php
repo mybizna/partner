@@ -3,6 +3,7 @@
 namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
+use Modules\Partner\Models\Partner;
 
 class Meta extends BaseModel
 {
@@ -19,5 +20,14 @@ class Meta extends BaseModel
      * @var string
      */
     protected $table = "partner_meta";
+
+    /**
+     * Add relationship to Partner
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
 
 }
