@@ -2,11 +2,11 @@
 
 namespace Modules\Partner\Models;
 
+use App\Models\User;
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Country;
 use Modules\Core\Models\Currency;
 use Modules\Partner\Models\Meta;
-use App\Models\User;s
 
 class Partner extends BaseModel
 {
@@ -26,7 +26,7 @@ class Partner extends BaseModel
      *
      * @var string
      */
-    protected $table = "partner";
+    protected $table = "partner_partner";
 
     /**
      * Add relationship to Meta
