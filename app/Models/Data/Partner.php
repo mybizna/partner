@@ -25,7 +25,7 @@ class Partner
      */
     public function data(Datasetter $datasetter): void
     {
-        $partner = DB::table('partner')->first();
+        $partner = DB::table('partner_partner')->first();
 
         if (!$partner) {
             $user = DB::table('users')->first();

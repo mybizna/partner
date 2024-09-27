@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partner_partner', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable()->index('partner_partner_user_id');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
 
             $table->string('first_name', 60)->nullable();
             $table->string('last_name', 60)->nullable();
@@ -33,12 +33,17 @@ return new class extends Migration
             $table->string('city', 80)->nullable();
             $table->string('state', 50)->nullable();
             $table->string('postal_code', 10)->nullable();
-            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->index('partner_partner_country_id');
-            $table->foreignId('currency_id')->constrained('core_currency')->onDelete('cascade')->nullable()->index('partner_partner_currency_id');
+            $table->foreignId('country_id')->nullable()->constrained('core_country')->onDelete('set null');
+            $table->foreignId('currency_id')->nullable()->constrained('core_currency')->onDelete('set null');
             $table->string('life_stage')->nullable();
             $table->string('hash', 40)->nullable();
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

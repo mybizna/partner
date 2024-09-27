@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('partner_type_relation', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_type_relation_partner_id');
-            $table->foreignId('partner_type_id')->constrained('partner_type')->onDelete('cascade')->nullable()->index('partner_type_relation_partner_type_id');
+            $table->foreignId('partner_id')->nullable()->constrained('partner_partner')->onDelete('set null');
+            $table->foreignId('partner_type_id')->nullable()->constrained('partner_type')->onDelete('set null');
+
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

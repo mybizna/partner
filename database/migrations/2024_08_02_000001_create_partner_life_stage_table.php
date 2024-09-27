@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('title_plural', 100)->nullable();
             $table->unsignedSmallInteger('position')->default(0);
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

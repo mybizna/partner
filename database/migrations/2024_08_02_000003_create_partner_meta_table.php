@@ -14,11 +14,18 @@ return new class extends Migration
         Schema::create('partner_meta', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('partner_id')->constrained('partner_partner')->onDelete('cascade')->nullable()->index('partner_meta_partner_id');
+            $table->foreignId('partner_id')->nullable()->constrained('partner_partner')->onDelete('set null');
             $table->string('meta_key')->nullable();
             $table->longText('meta_value')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable()->change();
+            $table->unsignedBigInteger('currency_id')->nullable()->change();
+
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
