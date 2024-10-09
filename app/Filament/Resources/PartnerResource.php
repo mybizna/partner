@@ -3,15 +3,12 @@
 namespace Modules\Partner\Filament\Resources;
 
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Partner\Filament\Resources\PartnerResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Partner\Models\Partner;
 
-class PartnerResource extends Resource
+class PartnerResource extends BaseResource
 {
     protected static ?string $model = Partner::class;
 
@@ -50,27 +47,4 @@ class PartnerResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListPartners::route('/'),
-            'create' => Pages\CreatePartner::route('/create'),
-            'edit' => Pages\EditPartner::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }
