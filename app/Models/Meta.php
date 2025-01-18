@@ -4,6 +4,7 @@ namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Partner\Models\Partner;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Schema\Blueprint;
 
 class Meta extends BaseModel
@@ -34,7 +35,6 @@ class Meta extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
         $table->string('meta_key')->nullable();

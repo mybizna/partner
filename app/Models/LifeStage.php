@@ -25,7 +25,6 @@ class LifeStage extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('slug', 100)->nullable()->unique('slug');
         $table->string('title', 100)->nullable();

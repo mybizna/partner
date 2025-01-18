@@ -4,8 +4,9 @@ namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Partner\Models\Partner;
-use Modules\Partner\Models\PartnerType;
+use Modules\Partner\Models\Type;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Schema\Blueprint;
 
 class TypeRelation extends BaseModel
 {
@@ -38,15 +39,14 @@ class TypeRelation extends BaseModel
      */
     public function partnerType(): BelongsTo
     {
-        return $this->belongsTo(PartnerType::class);
+        return $this->belongsTo(Type::class);
     }
 
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
-        $table->foreignId('partner_id')->nullable()->constrained('partner_partner')->onDelete('set null');
-        $table->foreignId('partner_type_id')->nullable()->constrained('partner_type')->onDelete('set null');
+        $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
+        $table->foreignId('partner_type_id')->nullable()->constrained(table: 'partner_type')->onDelete('set null');
     }
 }

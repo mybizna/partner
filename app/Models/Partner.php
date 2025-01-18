@@ -70,7 +70,6 @@ class Partner extends BaseModel
 
     public function migration(Blueprint $table)
     {
-        $table->id();
 
         $table->foreignId('user_id')->nullable()->constrained(table: 'users')->onDelete('set null');
 
