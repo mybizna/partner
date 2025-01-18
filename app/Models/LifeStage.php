@@ -3,6 +3,7 @@
 namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class LifeStage extends BaseModel
 {
@@ -21,4 +22,15 @@ class LifeStage extends BaseModel
      */
     protected $table = "partner_life_stage";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('slug', 100)->nullable()->unique('slug');
+        $table->string('title', 100)->nullable();
+        $table->string('title_plural', 100)->nullable();
+        $table->unsignedSmallInteger('position')->default(0);
+
+    }
 }

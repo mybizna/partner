@@ -4,6 +4,7 @@ namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Partner\Models\Partner;
+use Illuminate\Database\Schema\Blueprint;
 
 class Meta extends BaseModel
 {
@@ -25,9 +26,21 @@ class Meta extends BaseModel
      * Add relationship to Partner
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function partner()
+    public function partner(): BelongsTo
     {
         return $this->belongsTo(Partner::class);
     }
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
+        $table->string('meta_key')->nullable();
+        $table->longText('meta_value')->nullable();
+        $table->unsignedBigInteger('country_id')->nullable()->change();
+        $table->unsignedBigInteger('currency_id')->nullable()->change();
+
+    }
 }

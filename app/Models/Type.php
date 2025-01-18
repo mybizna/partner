@@ -3,6 +3,7 @@
 namespace Modules\Partner\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Type extends BaseModel
 {
@@ -20,4 +21,12 @@ class Type extends BaseModel
      */
     protected $table = "partner_type";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('name', 20)->nullable()->unique('name');
+
+    }
 }
