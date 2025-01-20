@@ -46,7 +46,13 @@ class TypeRelation extends BaseModel
     public function migration(Blueprint $table): void
     {
 
-        $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
-        $table->foreignId('partner_type_id')->nullable()->constrained(table: 'partner_type')->onDelete('set null');
+   $table->unsignedBigInteger('patner_id')->nullable();
+        $table->unsignedBigInteger('partner_types_id')->nullable();
+    }
+
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('partner_id')->references('id')->on('partner_partner')->onDelete('set null');
+        $table->foreign('partner_types_id')->references('id')->on('partner_type')->onDelete('set null');
     }
 }

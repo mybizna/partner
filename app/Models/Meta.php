@@ -36,11 +36,16 @@ class Meta extends BaseModel
     public function migration(Blueprint $table): void
     {
 
-        $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
+        $table->unsignedBigInteger("partner_id")->nullable();
         $table->string('meta_key')->nullable();
         $table->longText('meta_value')->nullable();
         $table->unsignedBigInteger('country_id')->nullable()->change();
         $table->unsignedBigInteger('currency_id')->nullable()->change();
 
+    }
+
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('partner_id')->references('id')->on('partner_partner')->onDelete('set null');
     }
 }

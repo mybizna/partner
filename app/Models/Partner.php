@@ -71,8 +71,7 @@ class Partner extends BaseModel
     public function migration(Blueprint $table)
     {
 
-        $table->foreignId('user_id')->nullable()->constrained(table: 'users')->onDelete('set null');
-
+        $table->unsignedBigInteger('user_id')->nullable();
         $table->string('first_name', 60)->nullable();
         $table->string('last_name', 60)->nullable();
         $table->enum('type_str', ['customer', 'suppier'])->nullable()->default('customer');
@@ -90,10 +89,17 @@ class Partner extends BaseModel
         $table->string('city', 80)->nullable();
         $table->string('state', 50)->nullable();
         $table->string('postal_code', 10)->nullable();
-        $table->foreignId('country_id')->nullable()->constrained(table: 'core_country')->onDelete('set null');
-        $table->foreignId('currency_id')->nullable()->constrained(table: 'core_currency')->onDelete('set null');
+        $table->unsignedBigInteger('country_id')->nullable();
+       $table->unsignedBigInteger('currency_id')->nullable();
         $table->string('life_stage')->nullable();
         $table->string('hash', 40)->nullable();
 
+    }
+
+    public function post_migration(Blueprint $table)
+    {
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+        $table->foreign('country_id')->references('id')->on('core_country')->onDelete('set null');
+        $table->foreign('currency_id')->references('id')->on('core_currency')->onDelete('set null');
     }
 }

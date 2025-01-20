@@ -1,11 +1,10 @@
 <?php
-
 namespace Modules\Partner\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Models\BaseModel;
 use Modules\Partner\Models\Partner;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Slug extends BaseModel
 {
@@ -32,12 +31,16 @@ class Slug extends BaseModel
         return $this->belongsTo(Partner::class);
     }
 
-
     public function migration(Blueprint $table): void
     {
 
-        $table->foreignId('partner_id')->nullable()->constrained(table: 'partner_partner')->onDelete('set null');
+        $table->unsignedBigInteger('partner_id')->nullable();
         $table->string('slug')->nullable();
 
+    }
+
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('partner_id')->references('id')->on('partner_partner')->onDelete('set null');
     }
 }
