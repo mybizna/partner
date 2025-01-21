@@ -1,12 +1,11 @@
 <?php
-
 namespace Modules\Partner\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Models\BaseModel;
 use Modules\Partner\Models\Partner;
 use Modules\Partner\Models\Type;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Schema\Blueprint;
 
 class TypeRelation extends BaseModel
 {
@@ -42,11 +41,10 @@ class TypeRelation extends BaseModel
         return $this->belongsTo(Type::class);
     }
 
-
     public function migration(Blueprint $table): void
     {
 
-   $table->unsignedBigInteger('patner_id')->nullable();
+        $table->unsignedBigInteger('partner_id')->nullable();
         $table->unsignedBigInteger('partner_types_id')->nullable();
     }
 
